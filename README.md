@@ -2,6 +2,21 @@
 
 ## Configuration
 firebaseconfig.js
+-----------------
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+export const firebaseConfig = {
+apiKey: "*****",
+authDomain: "*****",
+projectId: "*****",
+storageBucket: "*****",
+messagingSenderId: "*****",
+appId: "*****"
+}
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+
 
 ## Available Scripts
 In the project directory, you can run:
