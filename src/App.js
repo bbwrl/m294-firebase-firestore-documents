@@ -15,15 +15,17 @@ function App() {
   )
 }
 
+
 function HelloWorld() {
   const [message, setMessage] = useState("")
+
   useEffect(() => {
-    const asdfRef = doc(db, "messages", "hello");
-    getDoc(asdfRef)
+    const messageRef = doc(db, "myCollection", "messages");
+    getDoc(messageRef)
       .then(docSnap => {
         if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data().hello);
-          setMessage(docSnap.data().hello)
+          console.log("Document data:", docSnap.data());
+          setMessage(docSnap.data().welcomeMsg )
         } else {
           console.log("No such document!");
         }
