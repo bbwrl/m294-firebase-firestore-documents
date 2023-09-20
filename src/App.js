@@ -2,7 +2,7 @@
 import './App.css'
 import {useEffect, useState} from "react";
 import { doc, getDoc } from "firebase/firestore";
-import {db} from "./firestoreConfig";
+import {db} from "./firebaseConfig";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function HelloWorld() {
   useEffect(() => {
     const messageRef = doc(db, "myCollection", "messages");
     getDoc(messageRef)
-      .then(docSnap => {
+      .then( (docSnap) => {
         if (docSnap.exists()) {
           console.log("Document data:", docSnap.data());
           setMessage(docSnap.data().welcomeMsg )
